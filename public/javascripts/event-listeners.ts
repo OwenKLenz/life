@@ -43,33 +43,3 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
   // grid.removeEventListener("click", cellClickHandler, true);
 // }
 
-export const attachStartStop = (loopFunction, timePeriod: number) => {
-  const startStopButton = document.getElementById("start-stop");
-  let intervalId: number;
-
-  const pauseCycle = () => {
-    startStopButton.innerText = "Start";
-    clearInterval(intervalId);
-    intervalId = undefined;
-  }
-
-  const startCycle = () => {
-    startStopButton.innerText = "Stop";
-    intervalId = setInterval(() => loopFunction(pauseCycle), timePeriod);
-  }
-
-  startStopButton.addEventListener("click", () => {
-    if(startStopButton.innerText === "Start") {
-      startCycle();
-    } else {
-      pauseCycle();
-    }
-
-    // const target = e.target as HTMLDivElement;
-
-    // if (target.className.includes("cell")) {
-    //   target.className =
-    //     target.className.includes("alive") ? "cell" : "cell alive";
-    // }
-  })
-}

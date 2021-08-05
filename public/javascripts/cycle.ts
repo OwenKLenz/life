@@ -29,8 +29,8 @@ function countNeighbors(x: number, y: number, rows: Row[]): number {
   let count = 0;
 
   neighborCoords.forEach(([xOffset, yOffset]) => {
-    const row = rows[xOffset + x];
-    const neighborCell = row && row.cells[yOffset + y];
+    const row = rows[yOffset + y];
+    const neighborCell = row && row.cells[xOffset + x];
 
     if (neighborCell && isAlive(neighborCell)) {
       count += 1;
