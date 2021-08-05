@@ -8,11 +8,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ."
+    "start": "cd public && tsc && cd .. && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.12"
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.10",
+    "@types/socket.io-client": "^3.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "socket.io": "^4.1.3",
+    "socket.io-client": "^4.1.3"
   }
 }

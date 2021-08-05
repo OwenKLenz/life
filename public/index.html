@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Game of Life</title>
+    <meta charset="utf-8" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="dist/socket_stuff.js" type="module" defer></script>
+    <script src="dist/life.js" type="module" defer></script>
+    <link rel="stylesheet" href="stylesheets/life.css"/>
+  </head>
+  <body>
+    <h1>The Game of Life</h1>
+    <div id="button-container">
+      <button id="start-stop">Start</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div id="grid"></div>
+  </body>
+</html>

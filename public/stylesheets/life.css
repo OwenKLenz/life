@@ -4,7 +4,7 @@ h1 {
 
 #grid {
   font-size: 0;
-  width: 750px;
+  width: 1000px;
   box-sizing: content-box;
   border: 2px solid black;
   margin: 0 auto;
@@ -21,4 +21,24 @@ h1 {
 
 .alive {
   background-color: green;
+}
+
+button {
+  font-size: 2rem;
+  width: 100px;
+}
+
+#button-container {
+  width: 220px;
+  margin: 0 auto 20px auto;
+}
+
+#start-stop {
+  color: green;
+  margin-right: 5px;
+}
+
+#reset {
+  color: red;
+  margin-left: 5px;
 }

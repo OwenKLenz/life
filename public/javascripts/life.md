@@ -36,3 +36,8 @@ Updating The Board:
 2.  Iterate across killList and liveList and change state of cells
 
 
+### TODO:
+- Pausing emits a "pause" message to all sockets
+- Templates
+- Ability to "export" current state
+- Ability to save states
