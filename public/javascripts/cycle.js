@@ -1,16 +1,3 @@
-/*
-Init Kills HTMLDiv[]
-Init Births HTMLDiv[]
-
-For each cell in grid
-Count neighbors that are alive
-
-switch(count)
-case 0-1 or 4:
-  Add cell to kills
-case 3:
-  Add cell to births
-*/
 function countNeighbors(x, y, rows) {
     const neighborCoords = [
         [-1, -1],
@@ -41,7 +28,7 @@ function assessCells(grid, deaths, births) {
             const cell = grid.rows[y].cells[x];
             const alive = cell.className.includes("alive");
             const neighbors = countNeighbors(x, y, grid.rows);
-            if (alive && (neighbors >= 5 || neighbors <= 1)) {
+            if (alive && (neighbors >= 4 || neighbors <= 1)) {
                 deaths.push([x, y]);
             }
             else if (!alive && neighbors === 3) {

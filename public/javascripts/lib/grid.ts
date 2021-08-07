@@ -49,13 +49,6 @@ export default class Grid {
     return Object.keys(this.cellMap).map((key) => {
       return this.cellMap[key];
     });
-    // for (let y = 0; y < this.height; y++) {
-    //   for (let x = 0; x < this.width; x++) {
-    //     if (this.rows[y].cells[x].className.includes("alive")) {
-    //       liveCellCoords.push([x, y]);
-    //     }
-    //   }
-    // }
   }
 
   killCells(cellCoords: Coord[]) {

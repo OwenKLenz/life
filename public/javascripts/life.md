@@ -37,7 +37,7 @@ Updating The Board:
 
 
 ### TODO:
-- Pausing emits a "pause" message to all sockets
+<!-- - Pausing emits a "pause" message to all sockets -->
 - Templates
 - Ability to "export" current state
 - Ability to save states

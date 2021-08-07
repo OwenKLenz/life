@@ -36,10 +36,3 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
     emitGridState(liveCells);
   })
 }
-
-// const detachCellToggling = () => {
-  // const grid = document.getElementById("grid") as HTMLDivElement;
-
-  // grid.removeEventListener("click", cellClickHandler, true);
-// }
-

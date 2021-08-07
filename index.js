@@ -20,6 +20,10 @@ io.on('connection', socket => {
     socket.broadcast.emit('new grid', gridState);
     console.log("emitted to everyone but sender");
   })
+
+  socket.on('start-stop', (msg) => {
+    socket.broadcast.emit('start-stop', msg);
+  })
 })
 
 server.listen(3000);

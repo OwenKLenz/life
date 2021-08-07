@@ -2,7 +2,7 @@ const socket = io();
 
 export const attachSocketHandler = (grid, starter) => {
   socket.on("new grid", (gridJSON) => {
-    const newGrid = JSON.parse(gridJSON);
+    const newGrid = gridJSON;
     grid.reset();
     grid.birthCells(newGrid);
 
@@ -16,9 +16,9 @@ export const attachSocketHandler = (grid, starter) => {
 }
 
 export const emitGridState = (liveCells) => {
-  socket.emit("grid click", JSON.stringify(liveCells));
+  socket.emit("grid click", liveCells);
 }
 
 export const emitStartStop = (msg) => {
-  socket.emit("start-stop", JSON.stringify(msg));
+  socket.emit("start-stop", msg);
 }

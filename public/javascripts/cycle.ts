@@ -1,17 +1,3 @@
-/*
-Init Kills HTMLDiv[]
-Init Births HTMLDiv[]
-
-For each cell in grid
-Count neighbors that are alive
-
-switch(count)
-case 0-1 or 4:
-  Add cell to kills
-case 3:
-  Add cell to births
-*/
-
 import Grid from "./lib/grid.js";
 
 function countNeighbors(x: number, y: number, rows: Row[]): number {
@@ -59,6 +45,7 @@ function assessCells(grid: Grid, deaths: Coord[], births: Coord[]) {
     }
   }
 }
+
 function toggleCells(grid: Grid, births: Coord[], deaths: Coord[]) {
   grid.killCells(deaths);
   grid.birthCells(births);

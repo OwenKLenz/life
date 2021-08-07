@@ -27,8 +27,4 @@ export const attachGridInteractionEvents = (gridObject) => {
         emitGridState(liveCells);
     });
 };
-// const detachCellToggling = () => {
-// const grid = document.getElementById("grid") as HTMLDivElement;
-// grid.removeEventListener("click", cellClickHandler, true);
-// }
 //# sourceMappingURL=event-listeners.js.map
