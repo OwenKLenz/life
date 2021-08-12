@@ -4,7 +4,7 @@ h1 {
 
 #grid {
   font-size: 0;
-  width: 1000px;
+  width: 1200px;
   box-sizing: content-box;
   border: 2px solid black;
   margin: 0 auto;
@@ -13,15 +13,16 @@ h1 {
 .cell {
   display: inline-block;
   box-sizing: border-box;
-  width: 10px;
-  height: 10px;
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
   margin: 0;
-  background-color: black;
+  /* background-color: #000000; */
 }
 
-.alive {
-  background-color: green;
-}
+/* .alive { */
+  /* background-color: #00ff00; */
+/* } */
 
 button {
   font-size: 2rem;
@@ -41,4 +42,22 @@ button {
 #reset {
   color: red;
   margin-left: 5px;
+}
+
+#color-selector div {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+#pickBlue {
+  background-color: blue;
+}
+
+#pickRed {
+  background-color: red;
+}
+
+#pickGreen {
+  background-color: #00ff00;
 }

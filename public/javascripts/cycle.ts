@@ -38,34 +38,34 @@ function assessCells(grid: Grid, deaths: Coord[], births: Coord[]) {
       const neighbors = countNeighbors(x, y, grid.rows);
 
       if (alive && (neighbors >= 4 || neighbors <= 1)) {
-        deaths.push([x, y]);
+        deaths.push({x, y});
       } else if (!alive && neighbors === 3) {
-        births.push([x, y]);
+        births.push({x, y});
       }
     }
   }
 }
 
 function toggleCells(grid: Grid, births: Coord[], deaths: Coord[]) {
-  grid.killCells(deaths);
   grid.birthCells(births);
+  grid.killCells(deaths);
 }
 
 export default function lifeCycle(grid: Grid, pauseFunction) {
   let frozen = false;
-  const deaths: Coord[] = [];
-  const births: Coord[] = [];
+  const deathCoords: Coord[] = [];
+  const birthCoords: Coord[] = [];
 
-  assessCells(grid, deaths, births);
+  assessCells(grid, deathCoords, birthCoords);
 
-  if (births.length === 0 && deaths.length === 0) {
+  if (birthCoords.length === 0 && deathCoords.length === 0) {
     frozen = true;
   }
 
   if (frozen) {
     pauseFunction();
   } else {
-    toggleCells(grid, births, deaths);
+    toggleCells(grid, birthCoords, deathCoords);
   }
 }
 

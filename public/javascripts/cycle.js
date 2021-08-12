@@ -29,31 +29,31 @@ function assessCells(grid, deaths, births) {
             const alive = cell.className.includes("alive");
             const neighbors = countNeighbors(x, y, grid.rows);
             if (alive && (neighbors >= 4 || neighbors <= 1)) {
-                deaths.push([x, y]);
+                deaths.push({ x, y });
             }
             else if (!alive && neighbors === 3) {
-                births.push([x, y]);
+                births.push({ x, y });
             }
         }
     }
 }
 function toggleCells(grid, births, deaths) {
-    grid.killCells(deaths);
     grid.birthCells(births);
+    grid.killCells(deaths);
 }
 export default function lifeCycle(grid, pauseFunction) {
     let frozen = false;
-    const deaths = [];
-    const births = [];
-    assessCells(grid, deaths, births);
-    if (births.length === 0 && deaths.length === 0) {
+    const deathCoords = [];
+    const birthCoords = [];
+    assessCells(grid, deathCoords, birthCoords);
+    if (birthCoords.length === 0 && deathCoords.length === 0) {
         frozen = true;
     }
     if (frozen) {
         pauseFunction();
     }
     else {
-        toggleCells(grid, births, deaths);
+        toggleCells(grid, birthCoords, deathCoords);
     }
 }
 //# sourceMappingURL=cycle.js.map

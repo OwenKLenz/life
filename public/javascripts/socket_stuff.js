@@ -1,17 +1,20 @@
 const socket = io();
 
 export const attachSocketHandler = (grid, starter) => {
-  socket.on("new grid", (gridJSON) => {
-    const newGrid = gridJSON;
+  socket.on("initial grid", (gridState) => {
+    grid.birthCells(gridState); 
+  })
+
+  socket.on("new grid", (newGrid) => {
     grid.reset();
     grid.birthCells(newGrid);
-
-    console.log(newGrid);
   })
 
   socket.on("start-stop", (msg) => {
-    let m = JSON.parse(msg);
-    m === "start" ? starter.startCycle() : starter.stopCycle();
+    msg === "start" ?
+      starter.startCycle()
+      :
+      starter.stopCycle();
   })
 }
 

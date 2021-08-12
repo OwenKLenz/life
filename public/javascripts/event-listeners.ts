@@ -7,12 +7,12 @@ const cellClickHandler = (e: Event, grid: Grid) => {
   const { xCoord, yCoord } = target.dataset;
 
   if (target.className.includes("cell")) {
-    const cellCoords = [Number(xCoord), Number (yCoord)];
+    const cellCoords = {x: Number(xCoord), y: Number (yCoord)};
 
     if (target.className.includes("alive")) {
       grid.killCells([cellCoords] as Coord[]);
     } else {
-      grid.birthCells([cellCoords] as Coord[]);
+      grid.birthCells([cellCoords] as Coord[], true);
     }
   }
 }
@@ -34,5 +34,23 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
 
     const liveCells: Coord[] = gridObject.getLiveCellCoords();
     emitGridState(liveCells);
+  })
+}
+
+export const attachColorSelect = (grid: Grid) => {
+  const blueDiv = document.getElementById("pickBlue");
+  const redDiv = document.getElementById("pickRed");
+  const greenDiv = document.getElementById("pickGreen");
+
+  blueDiv.addEventListener("click", () => {
+    grid.selectedColor = "rgb(0, 0, 255)";
+  })
+
+  greenDiv.addEventListener("click", () => {
+    grid.selectedColor = "rgb(0, 255, 0)";
+  })
+
+  redDiv.addEventListener("click", () => {
+    grid.selectedColor = "rgb(255, 0, 0)";
   })
 }

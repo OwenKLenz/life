@@ -6,18 +6,23 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server)
 
+let gridState = [];
+
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
   console.log('a user connected');
+  socket.emit("initial grid", gridState);
+  console.log('inital grid dispatched...');
+
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
   })
 
-  socket.on('grid click', gridState => {
+  socket.on('grid click', newGridState => {
     console.log("new grid received");
-    socket.broadcast.emit('new grid', gridState);
+    socket.broadcast.emit('new grid', newGridState);
     console.log("emitted to everyone but sender");
   })
 

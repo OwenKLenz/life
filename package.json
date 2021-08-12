@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd public && tsc && cd .. && nodemon index.js"
+    "compile": "cd public && tsc --watch",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

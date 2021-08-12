@@ -4,7 +4,6 @@
     <title>The Game of Life</title>
     <meta charset="utf-8" />
     <script src="/socket.io/socket.io.js"></script>
-    <script src="javascripts/socket_stuff.js" type="module" defer></script>
     <script src="javascripts/life.js" type="module" defer></script>
     <link rel="stylesheet" href="stylesheets/life.css"/>
   </head>
@@ -13,6 +12,11 @@
     <div id="button-container">
       <button id="start-stop">Start</button>
       <button id="reset">Reset</button>
+    </div>
+    <div id="color-selector">
+      <div id="pickBlue"></div>
+      <div id="pickRed"></div>
+      <div id="pickGreen"></div>
     </div>
     <div id="grid"></div>
   </body>

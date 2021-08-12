@@ -37,7 +37,12 @@ Updating The Board:
 
 
 ### TODO:
-<!-- - Pausing emits a "pause" message to all sockets -->
+- Fix the "click events not being properly received" issue
+- Merge colors branch to main
+- Deploy to droplet and figure out socket.io issue
+- Create CD pipeline with Github Actions
+
+###Reach Goals:
 - Templates
 - Ability to "export" current state
 - Ability to save states
