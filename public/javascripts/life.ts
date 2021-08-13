@@ -5,7 +5,7 @@ import lifeCycle from "./cycle.js";
 import { attachSocketHandler } from "./socket_stuff.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const period = 100;
+  const period = 300;
   const gridObject = new Grid(80, 80);
   const starter = new Starter(period,
                               (pauseFunction: Function) => {

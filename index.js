@@ -8,7 +8,7 @@ const io = new Server(server)
 
 let gridState = [];
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/life', express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
   console.log('a user connected');
@@ -31,4 +31,4 @@ io.on('connection', socket => {
   })
 })
 
-server.listen(3000);
+server.listen(3002);
