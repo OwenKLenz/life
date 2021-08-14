@@ -17,4 +17,4 @@ jobs:
       - name: log cwd
         run: echo $PWD
       - name: Deploy with rsync
-        run: rsync -avz ../life ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
+        run: rsync -avz ../life/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
