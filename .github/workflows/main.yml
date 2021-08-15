@@ -14,7 +14,8 @@ jobs:
           known_hosts: 'placeholder'
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-			- uses: actions/checkout@v2
+      - name: Make repo available
+        uses: actions/checkout@v2
       - name: echo directory contents
         run: ls;
       - name: Deploy with rsync
