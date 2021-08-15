@@ -19,4 +19,4 @@ jobs:
       - name: echo directory contents
         run: ls;
       - name: Deploy with rsync
-        run: ssh -r /home/runner/work/life ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
+        run: rsync /home/runner/work/life ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
