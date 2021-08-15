@@ -44,20 +44,8 @@ button {
   margin-left: 5px;
 }
 
-#color-selector div {
+.colorPicker {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-}
-
-#pickBlue {
-  background-color: blue;
-}
-
-#pickRed {
-  background-color: red;
-}
-
-#pickGreen {
-  background-color: #00ff00;
+  width: 30px;
+  height: 30px;
 }
