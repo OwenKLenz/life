@@ -39,11 +39,6 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
 
 export const attachColorSelect = (grid: Grid) => {
   const colors = document.getElementsByClassName("colorPicker");
-  // const blueDiv = document.getElementById("pickBlue");
-  // const redDiv = document.getElementById("pickRed");
-  // const greenDiv = document.getElementById("pickGreen");
-      debugger;
-
   for (let i = 0; i < colors.length; i++) {
     const picker = colors[i] as HTMLElement;
     const color = picker.dataset.color;
