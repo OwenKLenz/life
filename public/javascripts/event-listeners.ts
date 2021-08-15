@@ -38,19 +38,19 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
 }
 
 export const attachColorSelect = (grid: Grid) => {
-  const blueDiv = document.getElementById("pickBlue");
-  const redDiv = document.getElementById("pickRed");
-  const greenDiv = document.getElementById("pickGreen");
+  const colors = document.getElementsByClassName("colorPicker");
+  // const blueDiv = document.getElementById("pickBlue");
+  // const redDiv = document.getElementById("pickRed");
+  // const greenDiv = document.getElementById("pickGreen");
+      debugger;
 
-  blueDiv.addEventListener("click", () => {
-    grid.selectedColor = "rgb(0, 0, 255)";
-  })
+  for (let i = 0; i < colors.length; i++) {
+    const picker = colors[i] as HTMLElement;
+    const color = picker.dataset.color;
+    picker.style.backgroundColor = color;
 
-  greenDiv.addEventListener("click", () => {
-    grid.selectedColor = "rgb(0, 255, 0)";
-  })
-
-  redDiv.addEventListener("click", () => {
-    grid.selectedColor = "rgb(255, 0, 0)";
-  })
+    picker.addEventListener("click", () => {
+      grid.selectedColor = color;
+    })
+  }
 }

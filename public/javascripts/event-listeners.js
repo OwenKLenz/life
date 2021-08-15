@@ -28,17 +28,18 @@ export const attachGridInteractionEvents = (gridObject) => {
     });
 };
 export const attachColorSelect = (grid) => {
-    const blueDiv = document.getElementById("pickBlue");
-    const redDiv = document.getElementById("pickRed");
-    const greenDiv = document.getElementById("pickGreen");
-    blueDiv.addEventListener("click", () => {
-        grid.selectedColor = "rgb(0, 0, 255)";
-    });
-    greenDiv.addEventListener("click", () => {
-        grid.selectedColor = "rgb(0, 255, 0)";
-    });
-    redDiv.addEventListener("click", () => {
-        grid.selectedColor = "rgb(255, 0, 0)";
-    });
+    const colors = document.getElementsByClassName("colorPicker");
+    // const blueDiv = document.getElementById("pickBlue");
+    // const redDiv = document.getElementById("pickRed");
+    // const greenDiv = document.getElementById("pickGreen");
+    debugger;
+    for (let i = 0; i < colors.length; i++) {
+        const picker = colors[i];
+        const color = picker.dataset.color;
+        picker.style.backgroundColor = color;
+        picker.addEventListener("click", () => {
+            grid.selectedColor = color;
+        });
+    }
 };
 //# sourceMappingURL=event-listeners.js.map
