@@ -14,7 +14,8 @@ jobs:
           known_hosts: 'placeholder'
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+			- uses: actions/checkout@v2
       - name: echo directory contents
-        run: ls ..
+        run: ls;
       - name: Deploy with rsync
-        run: scp -r /home/runner/work/life ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
+        run: ssh -r /home/runner/work/life ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/owen/life
