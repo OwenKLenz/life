@@ -71,18 +71,15 @@ export const cellHoverHighlighting = (grid: Grid) => {
   });
 
   grid.gridDiv.addEventListener("mouseleave", () => {
-    grid.highlightedCell.id = "";
     unHighlightCell(grid);
   });
 }
 
 const highlightCell = (grid: Grid) => {
-  grid.highlightedCell.id = "highlighted"; 
   grid.highlightedCell.style.border = `3px solid ${grid.selectedColor}`
  
 }
 
 const unHighlightCell = (grid: Grid) => {
-  grid.highlightedCell.id = ""; 
   grid.highlightedCell.style.border = "";
 }

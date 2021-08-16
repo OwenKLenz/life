@@ -55,16 +55,13 @@ export const cellHoverHighlighting = (grid) => {
         }
     });
     grid.gridDiv.addEventListener("mouseleave", () => {
-        grid.highlightedCell.id = "";
         unHighlightCell(grid);
     });
 };
 const highlightCell = (grid) => {
-    grid.highlightedCell.id = "highlighted";
     grid.highlightedCell.style.border = `3px solid ${grid.selectedColor}`;
 };
 const unHighlightCell = (grid) => {
-    grid.highlightedCell.id = "";
     grid.highlightedCell.style.border = "";
 };
 //# sourceMappingURL=event-listeners.js.map

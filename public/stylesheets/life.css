@@ -1,9 +1,17 @@
+body {
+  background-color: #acacac;
+  font-size: 30px;
+}
+
 h1 {
   text-align: center;
+  font-size:45px;
+  margin: 10px 0;
 }
 
 p {
   font-size: 16px;
+  margin-top: 2px;
 }
 
 #grid {
@@ -11,6 +19,7 @@ p {
   width: 1200px;
   box-sizing: content-box;
   border: 2px solid black;
+  border-radius: 5px;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -31,7 +40,7 @@ button {
 
 #button-container {
   width: 220px;
-  margin: 0 auto 20px auto;
+  margin: 20px auto 10px auto;
 }
 
 #start-stop {
@@ -50,16 +59,12 @@ button {
 }
 
 #color-selector .selected {
-  border-radius: 3px;
   box-sizing: border-box;
+  border: 3px solid orange;
 }
 
 .colorPicker {
   display: inline-block;
   width: 30px;
   height: 30px;
-}
-
-#highlighted {
-  border: 2px solid yellow;
 }
