@@ -12,6 +12,7 @@ p {
   box-sizing: content-box;
   border: 2px solid black;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .cell {
@@ -58,4 +59,8 @@ button {
   display: inline-block;
   width: 30px;
   height: 30px;
+}
+
+#highlighted {
+  border: 2px solid yellow;
 }

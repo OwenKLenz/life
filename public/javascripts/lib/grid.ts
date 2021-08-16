@@ -6,6 +6,7 @@ export default class Grid {
   cellMap: LiveCellMap;
   selectedColor: string;
   deadColor: string;
+  highlightedCell: HTMLDivElement;
 
   constructor(width: number = 100, height: number = 100) {
     this.selectedColor = "rgb(0, 0, 255)";

@@ -55,3 +55,22 @@ export const attachColorSelect = (grid: Grid) => {
     })
   })
 }
+
+export const cellHoverHighlighting = (grid: Grid) => {
+  grid.gridDiv.addEventListener("mouseover", (event) => {
+    if (grid.highlightedCell) {
+      grid.highlightedCell.id = "";
+    }
+
+    const target = event.target as HTMLDivElement;
+
+    if (target.className.includes("cell")) {
+      grid.highlightedCell = event.target as HTMLDivElement;
+      grid.highlightedCell.id = "highlighted"; 
+    }
+  });
+
+  grid.gridDiv.addEventListener("mouseleave", () => {
+    grid.highlightedCell.id = "";
+  });
+}

@@ -43,4 +43,19 @@ export const attachColorSelect = (grid) => {
         });
     });
 };
+export const cellHoverHighlighting = (grid) => {
+    grid.gridDiv.addEventListener("mouseover", (event) => {
+        if (grid.highlightedCell) {
+            grid.highlightedCell.id = "";
+        }
+        const target = event.target;
+        if (target.className.includes("cell")) {
+            grid.highlightedCell = event.target;
+            grid.highlightedCell.id = "highlighted";
+        }
+    });
+    grid.gridDiv.addEventListener("mouseleave", () => {
+        grid.highlightedCell.id = "";
+    });
+};
 //# sourceMappingURL=event-listeners.js.map
