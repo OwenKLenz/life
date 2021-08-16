@@ -59,18 +59,30 @@ export const attachColorSelect = (grid: Grid) => {
 export const cellHoverHighlighting = (grid: Grid) => {
   grid.gridDiv.addEventListener("mouseover", (event) => {
     if (grid.highlightedCell) {
-      grid.highlightedCell.id = "";
+      unHighlightCell(grid)
     }
 
     const target = event.target as HTMLDivElement;
 
     if (target.className.includes("cell")) {
       grid.highlightedCell = event.target as HTMLDivElement;
-      grid.highlightedCell.id = "highlighted"; 
+      highlightCell(grid);
     }
   });
 
   grid.gridDiv.addEventListener("mouseleave", () => {
     grid.highlightedCell.id = "";
+    unHighlightCell(grid);
   });
+}
+
+const highlightCell = (grid: Grid) => {
+  grid.highlightedCell.id = "highlighted"; 
+  grid.highlightedCell.style.border = `3px solid ${grid.selectedColor}`
+ 
+}
+
+const unHighlightCell = (grid: Grid) => {
+  grid.highlightedCell.id = ""; 
+  grid.highlightedCell.style.border = "";
 }
