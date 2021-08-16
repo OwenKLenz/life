@@ -22,6 +22,7 @@ io.on('connection', socket => {
 
   socket.on('grid click', newGridState => {
     console.log("new grid received");
+    gridState = newGridState;
     socket.broadcast.emit('new grid', newGridState);
     console.log("emitted to everyone but sender");
   })
