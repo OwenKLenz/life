@@ -1,6 +1,12 @@
 import { emitGridState } from "./socket_stuff.js";
 import Grid from "./lib/grid";
 
+const resetPickers = (): void => {
+  [...document.getElementsByClassName("colorPicker")].forEach((picker: HTMLElement) => {
+    picker.className = "colorPicker";
+  })
+}
+
 const cellClickHandler = (e: Event, grid: Grid) => {
   const target = e.target as HTMLDivElement;
 
@@ -17,7 +23,7 @@ const cellClickHandler = (e: Event, grid: Grid) => {
   }
 }
 
-export const attachResetListener = (resetFunction) => {
+export const attachResetListener = (resetFunction: Function) => {
   const resetButton = document.getElementById("reset");
 
   resetButton.addEventListener("click", () => {
@@ -38,14 +44,14 @@ export const attachGridInteractionEvents = (gridObject: Grid) => {
 }
 
 export const attachColorSelect = (grid: Grid) => {
-  const colors = document.getElementsByClassName("colorPicker");
-  for (let i = 0; i < colors.length; i++) {
-    const picker = colors[i] as HTMLElement;
+  [...document.getElementsByClassName("colorPicker")].forEach((picker: HTMLElement) => {
     const color = picker.dataset.color;
     picker.style.backgroundColor = color;
 
     picker.addEventListener("click", () => {
+      resetPickers();
+      picker.className = "colorPicker selected";
       grid.selectedColor = color;
     })
-  }
+  })
 }

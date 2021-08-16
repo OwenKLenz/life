@@ -1,4 +1,9 @@
 import { emitGridState } from "./socket_stuff.js";
+const resetPickers = () => {
+    [...document.getElementsByClassName("colorPicker")].forEach((picker) => {
+        picker.className = "colorPicker";
+    });
+};
 const cellClickHandler = (e, grid) => {
     const target = e.target;
     const { xCoord, yCoord } = target.dataset;
@@ -28,14 +33,14 @@ export const attachGridInteractionEvents = (gridObject) => {
     });
 };
 export const attachColorSelect = (grid) => {
-    const colors = document.getElementsByClassName("colorPicker");
-    for (let i = 0; i < colors.length; i++) {
-        const picker = colors[i];
+    [...document.getElementsByClassName("colorPicker")].forEach((picker) => {
         const color = picker.dataset.color;
         picker.style.backgroundColor = color;
         picker.addEventListener("click", () => {
+            resetPickers();
+            picker.className = "colorPicker selected";
             grid.selectedColor = color;
         });
-    }
+    });
 };
 //# sourceMappingURL=event-listeners.js.map
