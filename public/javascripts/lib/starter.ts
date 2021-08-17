@@ -1,13 +1,14 @@
 import { emitStartStop } from "../socket_stuff.js";
 
 export default class Starter {
+  config: Config;
   intervalId: number;
   button: HTMLButtonElement;
   cyclePeriod: number;
   loopFunction: Function;
 
-  constructor(cyclePeriod: number, loopFunction: Function) {
-    this.cyclePeriod = cyclePeriod;
+  constructor(config: Config, loopFunction: Function) {
+    this.config = config;
     this.intervalId;
     this.button = document.getElementById("start-stop") as HTMLButtonElement; 
     this.attachButtonListener();
@@ -27,14 +28,24 @@ export default class Starter {
   }
 
   startCycle() {
+    this.config.running = true;
     this.button.innerText = "Stop";
+
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = undefined;
+    }
+
     this.intervalId = setInterval(() => {
       this.loopFunction(this.stopCycle.bind(this));
-    }, this.cyclePeriod);
+    }, this.config.period);
   }
 
+
   stopCycle() {
+    this.config.running = false;
     this.button.innerText = "Start";
     clearInterval(this.intervalId);
+    this.intervalId = undefined;
   }
 }

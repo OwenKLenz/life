@@ -3,7 +3,13 @@ type Row = {
   cells: HTMLDivElement[]
 }
 
-// type Coord = [number, number]
+type Config = {
+  running: boolean,
+  period: number,
+  undercrowded: number,
+  overcrowded: number,
+  barryWhiteMusic: number
+}
 
 type Coord = {
   x: number,

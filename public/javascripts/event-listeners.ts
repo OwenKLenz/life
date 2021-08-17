@@ -1,5 +1,6 @@
 import { emitGridState } from "./socket_stuff.js";
 import Grid from "./lib/grid";
+import Starter from "./lib/starter";
 
 const resetPickers = (): void => {
   [...document.getElementsByClassName("colorPicker")].forEach((picker: HTMLElement) => {
@@ -82,4 +83,49 @@ const highlightCell = (grid: Grid) => {
 
 const unHighlightCell = (grid: Grid) => {
   grid.highlightedCell.style.border = "";
+}
+
+export const attachConfigurationListeners = (config: Config, starter: Starter) => {
+  const periodSlider = document.getElementById("periodSlider");
+  const rulesDiv = document.getElementById("rules");
+
+  periodSlider.addEventListener("input", (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    debugger;
+    config.period = Number(target.value);
+    if (config.running) {
+      starter.startCycle();
+    }
+  })
+
+  rulesDiv.addEventListener("input", (e: Event) => {
+    e.preventDefault();
+
+    const target = e.target as HTMLInputElement;
+    const rule = target.name;
+
+    if (rule && target.value) {
+      config[rule] = Number(target.value);
+    }
+  })
+}
+
+export const attachResetRules = (config: Config) => {
+  const defaults = {
+    overcrowded: 4,
+    undercrowded: 1,
+    barryWhiteMusic: 3,
+  }
+
+  const resetRulesButton = document.getElementById("resetRules");
+
+  resetRulesButton.addEventListener("click", () => {
+    const rules = [...document.getElementsByClassName("rule")];
+
+    rules.forEach((rule: HTMLInputElement) => {
+      const originalValue = defaults[rule.name];
+      config[rule.name] = originalValue; 
+      rule.value = originalValue;
+    })
+  })
 }

@@ -1,7 +1,7 @@
 import { emitStartStop } from "../socket_stuff.js";
 export default class Starter {
-    constructor(cyclePeriod, loopFunction) {
-        this.cyclePeriod = cyclePeriod;
+    constructor(config, loopFunction) {
+        this.config = config;
         this.intervalId;
         this.button = document.getElementById("start-stop");
         this.attachButtonListener();
@@ -20,14 +20,21 @@ export default class Starter {
         });
     }
     startCycle() {
+        this.config.running = true;
         this.button.innerText = "Stop";
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.intervalId = undefined;
+        }
         this.intervalId = setInterval(() => {
             this.loopFunction(this.stopCycle.bind(this));
-        }, this.cyclePeriod);
+        }, this.config.period);
     }
     stopCycle() {
+        this.config.running = false;
         this.button.innerText = "Start";
         clearInterval(this.intervalId);
+        this.intervalId = undefined;
     }
 }
 //# sourceMappingURL=starter.js.map

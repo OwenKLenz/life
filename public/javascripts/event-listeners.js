@@ -64,4 +64,40 @@ const highlightCell = (grid) => {
 const unHighlightCell = (grid) => {
     grid.highlightedCell.style.border = "";
 };
+export const attachConfigurationListeners = (config, starter) => {
+    const periodSlider = document.getElementById("periodSlider");
+    const rulesDiv = document.getElementById("rules");
+    periodSlider.addEventListener("input", (e) => {
+        const target = e.target;
+        debugger;
+        config.period = Number(target.value);
+        if (config.running) {
+            starter.startCycle();
+        }
+    });
+    rulesDiv.addEventListener("input", (e) => {
+        e.preventDefault();
+        const target = e.target;
+        const rule = target.name;
+        if (rule && target.value) {
+            config[rule] = Number(target.value);
+        }
+    });
+};
+export const attachResetRules = (config) => {
+    const defaults = {
+        overcrowded: 4,
+        undercrowded: 1,
+        barryWhiteMusic: 3,
+    };
+    const resetRulesButton = document.getElementById("resetRules");
+    resetRulesButton.addEventListener("click", () => {
+        const rules = [...document.getElementsByClassName("rule")];
+        rules.forEach((rule) => {
+            const originalValue = defaults[rule.name];
+            config[rule.name] = originalValue;
+            rule.value = originalValue;
+        });
+    });
+};
 //# sourceMappingURL=event-listeners.js.map
