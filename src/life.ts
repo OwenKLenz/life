@@ -1,5 +1,5 @@
-import Grid from "./lib/grid.js";
-import Starter from "./lib/starter.js";
+import Grid from "./classes/grid.js";
+import Starter from "./classes/starter.js";
 import {
   attachColorSelect,
   attachResetListener, 

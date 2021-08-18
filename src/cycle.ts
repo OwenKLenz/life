@@ -1,4 +1,4 @@
-import Grid from "./lib/grid.js";
+import Grid from "./classes/grid.js";
 
 function countNeighbors(x: number, y: number, rows: Row[]): number {
   const neighborCoords = [

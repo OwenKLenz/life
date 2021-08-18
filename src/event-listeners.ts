@@ -1,6 +1,6 @@
 import { emitGridState } from "./socket_stuff.js";
-import Grid from "./lib/grid";
-import Starter from "./lib/starter";
+import Grid from "./classes/grid";
+import Starter from "./classes/starter";
 
 const resetPickers = (): void => {
   [...document.getElementsByClassName("colorPicker")].forEach((picker: HTMLElement) => {
