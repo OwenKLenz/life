@@ -2,6 +2,8 @@
 
 My take on [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
+![Game of Life GIF](gifs/gol_gif.gif)
+
 Play here: https://oklenz.com/life/
 
 ## Features:

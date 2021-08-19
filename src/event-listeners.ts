@@ -34,7 +34,7 @@ export const attachResetListener = (resetFunction: Function) => {
 }
 
 export const attachGridInteractionEvents = (gridObject: Grid) => {
-  const gridDiv = document.getElementById("grid") as HTMLDivElement;
+  const gridDiv = document.getElementById("grid")!;
 
   gridDiv.addEventListener("click", (e: Event) => {
     cellClickHandler(e, gridObject);
